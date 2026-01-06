@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NeatWorks – Curățare PC & Desk Setups</title>
+
+  <!-- Font premium -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #0f1115;
+      --text: #f5f5f5;
+      --muted: #a0a4b8;
+      --accent: #8b5cf6;
+      --card: #181b25;
+      --border: #232636;
+      --radius: 12px;
+      --font-sans: 'Inter', system-ui, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      background: radial-gradient(circle at top, #1f2330 0, #05060a 55%);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .page {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 32px 16px 64px;
+    }
+
+    /* ANIMAȚII */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeIn 0.8s ease forwards;
+    }
+
+    .fade-in-delayed {
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeIn 1s ease forwards;
+      animation-delay: 0.3s;
+    }
+
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* HEADER CENTRAT */
+    header {
+      text-align: center;
+      padding-bottom: 32px;
+    }
+
+    .logo-img {
+      height: 300px;
+      margin-bottom: 2px;
+      opacity: 0.95;
+      animation: fadeIn 1s ease forwards;
+    }
+
+    nav a {
+      margin: 0 14px;
+      font-size: 15px;
+      color: var(--muted);
+      transition: 0.2s ease;
+    }
+
+    nav a:hover {
+      color: var(--text);
+    }
+
+    /* HERO */
+    .hero {
+      padding: 48px 0 40px;
+      text-align: center;
+    }
+
+    .hero-title {
+      font-size: 38px;
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+
+    .hero-subtitle {
+      font-size: 17px;
+      color: var(--muted);
+      max-width: 520px;
+      margin: 0 auto 24px;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: white;
+      border-radius: 999px;
+      padding: 12px 24px;
+      border: none;
+      font-size: 15px;
+      cursor: pointer;
+      transition: 0.25s ease;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      filter: brightness(1.1);
+    }
+
+    .hero-meta {
+      font-size: 14px;
+      color: var(--muted);
+      margin-top: 12px;
+    }
+
+    /* SECTIONS */
+    .section {
+      padding: 32px 0;
+      border-top: 1px solid rgba(255, 255, 255, 0.04);
+    }
+
+    .section-title {
+      font-size: 22px;
+      margin-bottom: 16px;
+      font-weight: 500;
+      text-align: center;
+    }
+
+    .section-subtitle {
+      font-size: 15px;
+      color: var(--muted);
+      margin-bottom: 20px;
+      max-width: 520px;
+      text-align: center;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* GRID SERVICII */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 18px;
+    }
+
+    .card {
+      background: var(--card);
+      border-radius: var(--radius);
+      padding: 18px;
+      border: 1px solid var(--border);
+      transition: 0.25s ease;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeIn 0.8s ease forwards;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      border-color: var(--accent);
+    }
+
+    .card h3 {
+      font-size: 19px;
+      margin-bottom: 10px;
+      font-weight: 500;
+    }
+
+    .card p {
+      font-size: 15px;
+      color: var(--muted);
+      margin-bottom: 10px;
+    }
+
+    .price {
+      font-size: 16px;
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    /* DE CE NEATWORKS */
+    .reason-list li {
+      list-style: none;
+      font-size: 15px;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+
+    .reason-list li::before {
+      content: "– ";
+      color: var(--accent);
+    }
+
+    /* PROCES */
+    .steps {
+      list-style: none;
+      counter-reset: step;
+    }
+
+    .steps li {
+      position: relative;
+      padding-left: 28px;
+      margin-bottom: 12px;
+      font-size: 15px;
+      color: var(--muted);
+    }
+
+    .steps li::before {
+      counter-increment: step;
+      content: counter(step);
+      position: absolute;
+      left: 0;
+      top: 1px;
+      width: 20px;
+      height: 20px;
+      border-radius: 999px;
+      border: 1px solid var(--accent);
+      color: var(--accent);
+      font-size: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* FAQ */
+    .faq-item {
+      margin-bottom: 14px;
+    }
+
+    .faq-q {
+      font-size: 15px;
+      font-weight: 500;
+      margin-bottom: 2px;
+    }
+
+    .faq-a {
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    /* CONTACT */
+    .contact-block {
+      font-size: 15px;
+      color: var(--muted);
+      margin-bottom: 10px;
+      text-align: center;
+    }
+
+    .contact-highlight {
+      font-size: 16px;
+      margin-bottom: 4px;
+      color: var(--text);
+      font-weight: 500;
+    }
+
+    footer {
+      padding-top: 24px;
+      font-size: 13px;
+      color: var(--muted);
+      text-align: center;
+    }
+
+    /* OPTIMIZARE PENTRU TELEFON */
+    @media (max-width: 600px) {
+      .hero-title {
+        font-size: 30px;
+      }
+
+      nav a {
+        margin: 0 8px;
+        font-size: 14px;
+      }
+
+      .card h3 {
+        font-size: 18px;
+      }
+
+      .card p {
+        font-size: 14px;
+      }
+
+      .price {
+        font-size: 15px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="page">
+
+    <!-- HEADER -->
+    <header class="fade-in">
+      <img src="logo.png" alt="NeatWorks Logo" class="logo-img">
+      <nav>
+        <a href="#servicii">Servicii</a>
+        <a href="#proces">Proces</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero fade-in-delayed">
+      <h1 class="hero-title">Ordine, răcoare, claritate în spațiul tău.</h1>
+      <p class="hero-subtitle">
+        Curățare internă PC & laptop, cable management și optimizare spațiu de lucru. Minimalism, fără grabă și atenție la detalii.
+      </p>
+      <button class="btn-primary" onclick="document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });">
+        Programează o vizită
+      </button>
+      <div class="hero-meta">
+        Bazat în Craiova · Lucru la domiciliu sau birou.
+      </div>
+    </section>
+
+    <!-- SERVICII -->
+    <section id="servicii" class="section fade-in">
+      <h2 class="section-title">Servicii NeatWorks</h2>
+      <p class="section-subtitle">
+        Alegi ce ai nevoie, îți explic clar fiecare pas și stabilim prețul final înainte să încep orice intervenție.
+      </p>
+
+      <div class="grid">
+
+        <div class="card">
+          <h3>Curățare internă praf (PC / Laptop)</h3>
+          <p>Demontare controlată, curățare praf din ventilatoare, radiatoare și carcasă internă.</p>
+          <div class="price">Laptop: 120–150 lei · PC: 100–150 lei</div>
+        </div>
+
+        <div class="card">
+          <h3>Schimbare pastă termică</h3>
+          <p>Curățare suprafețe, aplicare pastă termică de calitate și testare temperaturi.</p>
+          <div class="price">Laptop: +50–70 lei · PC: +40–60 lei</div>
+        </div>
+
+        <div class="card">
+          <h3>Instalare Windows</h3>
+          <p>Instalare Windows (licența este asigurată de tine) și configurare inițială.</p>
+          <div class="price">80–120 lei</div>
+        </div>
+
+        <div class="card">
+          <h3>Instalare drivere</h3>
+          <p>Instalare drivere esențiale: chipset, placă video, audio, rețea.</p>
+          <div class="price">+30–50 lei</div>
+        </div>
+
+        <div class="card">
+          <h3>Cable management (interior PC)</h3>
+          <p>Rutare și organizare cabluri în carcasă, fixare discretă și airflow optim.</p>
+          <div class="price">70–120 lei</div>
+        </div>
+
+        <div class="card">
+          <h3>Cable management setup birou</h3>
+          <p>Aranjare cabluri vizibile pe birou, ascundere/organizare pentru un setup aerisit.</p>
+          <div class="price">80–150 lei</div>
+        </div>
+
+        <div class="card">
+          <h3>Optimizare spațiu birou</h3>
+          <p>Reorganizare obiecte, poziționare corectă a monitorului și accesoriilor.</p>
+          <div class="price">100–200 lei</div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- DE CE NEATWORKS -->
+    <section class="section fade-in">
+      <h2 class="section-title">De ce NeatWorks</h2>
+      <ul class="reason-list">
+        <li><strong>Fără grabă inutilă:</strong> lucrez ca să fie bine, nu doar „gata”.</li>
+        <li><strong>Transparență totală:</strong> știi exact ce fac și cât costă.</li>
+        <li><strong>Respect pentru echipamente:</strong> tratez fiecare sistem ca pe al meu.</li>
+        <li><strong>Vibe minimalist:</strong> spațiu curat, aerisit, coerent.</li>
+      </ul>
+    </section>
+
+    <!-- PROCES -->
+    <section id="proces" class="section fade-in">
+      <h2 class="section-title">Cum funcționează</h2>
+      <ol class="steps">
+        <li>Îmi trimiți poze și detalii despre PC/laptop sau setupul tău de birou.</li>
+        <li>Îți recomand exact ce servicii au sens și stabilim prețul final înainte de programare.</li>
+        <li>Vin, fac intervenția și la final îți arăt clar diferența, inclusiv poze înainte/după.</li>
+      </ol>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="section fade-in">
+      <h2 class="section-title">Întrebări frecvente</h2>
+
+      <div class="faq-item">
+        <div class="faq-q">Cât durează un serviciu?</div>
+        <div class="faq-a">Depinde de model și de starea echipamentului. Prefer să lucrez corect, fără să promit un timp fix.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">Trebuie să îmi fac backup înainte de instalarea Windows?</div>
+        <div class="faq-a">Da, recomand să salvezi fișierele importante înainte.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">Folosești pastă termică de calitate?</div>
+        <div class="faq-a">Da, folosesc pastă termică de brand, potrivită pentru utilizare pe termen lung.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">Poți veni la domiciliu sau la birou?</div>
+        <div class="faq-a">Da, în Craiova și împrejurimi.</div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="section fade-in">
+      <h2 class="section-title">Contact</h2>
+      <p class="section-subtitle">
+        Pentru programări, trimite-mi un mesaj cu câteva poze și o scurtă descriere a problemei sau a setupului tău.
+      </p>
+
+      <div class="contact-block">
+        <div class="contact-highlight">WhatsApp</div>
+        <div>07xx xxx xxx</div>
+      </div>
+
+      <div class="contact-block">
+        <div class="contact-highlight">Email</div>
+        <div>contact@neatworks.ro</div>
+      </div>
+
+      <div class="contact-block">
+        <div class="contact-highlight">Locație</div>
+        <div>Craiova, Dolj</div>
+      </div>
+    </section>
+
+    <footer>
+      © <span id="year"></span> NeatWorks. Toate drepturile rezervate.
+    </footer>
+
+  </div>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+
+</body>
+</html>
