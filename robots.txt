@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://neatworksro.github.io/NeatWorks/sitemap.xml
